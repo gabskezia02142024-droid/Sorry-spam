@@ -1,0 +1,90 @@
+index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>I'm Really Sorry 😭</title>
+
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: linear-gradient(to bottom, #ffd6e7, #fff);
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 80px;
+      font-size: 50px;
+      color: #ff4d6d;
+      text-shadow: 2px 2px white;
+    }
+
+    button {
+      padding: 15px 25px;
+      font-size: 20px;
+      border: none;
+      border-radius: 10px;
+      background: #ff4d6d;
+      color: white;
+      cursor: pointer;
+      margin-top: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    button:hover {
+      background: #ff1f4b;
+    }
+
+    .sorry {
+      position: absolute;
+      color: #ff4d6d;
+      font-size: 20px;
+      animation: fall linear infinite;
+      user-select: none;
+    }
+
+    @keyframes fall {
+      from {
+        transform: translateY(-50px);
+      }
+      to {
+        transform: translateY(110vh);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>I'M REALLY REALLY SORRY 😭</h1>
+  <button onclick="spawnSorry()">MORE SORRY</button>
+
+  <script>
+    function createSorry() {
+      const s = document.createElement("div");
+      s.className = "sorry";
+      s.innerText = "sorry";
+
+      s.style.left = Math.random() * window.innerWidth + "px";
+      s.style.animationDuration = (Math.random() * 3 + 2) + "s";
+      s.style.fontSize = (Math.random() * 20 + 15) + "px";
+
+      document.body.appendChild(s);
+
+      setTimeout(() => s.remove(), 6000);
+    }
+
+    function spawnSorry() {
+      for (let i = 0; i < 50; i++) {
+        createSorry();
+      }
+    }
+
+    // automatic sorry rain
+    setInterval(createSorry, 200);
+  </script>
+
+</body>
+</html>
